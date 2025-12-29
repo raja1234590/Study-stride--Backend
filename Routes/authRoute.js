@@ -11,6 +11,8 @@ const {
   resetPassword,
 } = require("../controllers/Authcontroller");
 
+
+
 // ✅ Protected route
 router.get("/profile", protect, (req, res) => {
   res.json({ message: "This is a protected route", user: req.user });

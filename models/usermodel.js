@@ -13,12 +13,12 @@ const UserSchema = new mongoose.Schema(
       required: true,
       minlength: 6,
     },
-    resetPasswordToken: {
-      type: String,
-    },
-    resetPasswordExpire: {
-      type: Date,
-    },
+    email: { type: String, required: true, unique: true },
+  password: { type: String, required: true },
+
+  resetOTP: String,
+  resetOTPExpiry: Date,
+
   },
   { timestamps: true } // ✅ adds createdAt & updatedAt automatically
 );

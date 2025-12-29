@@ -8,6 +8,7 @@ import cors from "cors";
 
 import chatRoute from "./Routes/chatRoute.js";
 import authRoute from "./Routes/authRoute.js";
+import counsellingRoute from "./Routes/counsellingRoute.js";
 
 const app = express();
 
@@ -16,9 +17,11 @@ app.use(cors({
   origin: "*", 
 }));
 app.use(express.json());
-
+app.use("/uploads", express.static("uploads"));
 app.use("/api/auth", authRoute);
 app.use("/api/chat", chatRoute);
+app.use("/api/counselling", counsellingRoute);
+
 
 
 if (!mongoose.connection.readyState) {
