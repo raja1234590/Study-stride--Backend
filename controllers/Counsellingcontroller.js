@@ -5,13 +5,12 @@ export const submitCounselling = async (req, res) => {
   try {
     const counsellingData = {
       ...req.body,
-      resume: req.file ? req.file.filename : null,
+      resume: null, // ❌ no file storage on Vercel
     };
 
     const newRequest = new Counselling(counsellingData);
     await newRequest.save();
 
-    // ✅ Correct email function
     await sendCounsellingAdminEmail(counsellingData);
 
     res.status(201).json({

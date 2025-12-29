@@ -17,7 +17,7 @@ app.use(cors({
   origin: "*", 
 }));
 app.use(express.json());
-app.use("/uploads", express.static("uploads"));
+
 app.use("/api/auth", authRoute);
 app.use("/api/chat", chatRoute);
 app.use("/api/counselling", counsellingRoute);
